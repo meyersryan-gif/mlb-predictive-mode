@@ -1,0 +1,16 @@
+MLB Daily Run Commands
+
+# Morning run
+python main.py
+
+# Afternoon re-run closer to game time
+python main.py
+
+# When you are happy with the card and ready to bet it — lock it
+python lock_card.py --date 2026-06-10
+
+# After games finish — grades the locked PLAYED version
+python grade_card_auto.py --date 2026-07-01
+
+gate split check
+python check_gate_split.py
