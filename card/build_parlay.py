@@ -56,10 +56,10 @@ def _is_flagship_pick(row: pd.Series, flagship: dict | None) -> bool:
     )
 
 
-# Maximum juice allowed on any single parlay leg.
-# At -130 the implied probability is 56.5% — beyond that the book
+# Maximum juice allowed on any single parlay leg — beyond this the book
 # is pricing more confidence than our model has, killing expected value.
-PARLAY_MAX_JUICE = -130
+# Illustrative value; production threshold is tuned via backtest.
+PARLAY_MAX_JUICE = -115
 
 
 def _valid_pitcher_parlay_pair(row1: pd.Series, row2: pd.Series) -> tuple[bool, str, int]:

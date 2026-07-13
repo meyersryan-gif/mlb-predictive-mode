@@ -22,9 +22,9 @@ UNITS_LOTTO    = 0.10
 # confidence score (0-100) before a pick is eligible for that tier.
 # Illustrative values below; production thresholds are tuned via backtest.
 # ---------------------------------------------------------------------------
-THRESH_FLAGSHIP   = 80
-THRESH_PARLAY_LEG = 70
-THRESH_LOTTO      = 60
+THRESH_FLAGSHIP   = 76
+THRESH_PARLAY_LEG = 68
+THRESH_LOTTO      = 55
 
 # ---------------------------------------------------------------------------
 # Flagship juice and EV gates
@@ -38,8 +38,8 @@ THRESH_LOTTO      = 60
 # FLAGSHIP_MIN_JUICE: ceiling — reject anything lighter than this.
 # FLAGSHIP_MIN_EV: EV must still be strictly positive (price-sanity filter).
 # ---------------------------------------------------------------------------
-FLAGSHIP_MAX_JUICE = -200   # American odds floor
-FLAGSHIP_MIN_JUICE = -130   # American odds ceiling
+FLAGSHIP_MAX_JUICE = -170   # American odds floor
+FLAGSHIP_MIN_JUICE = -118   # American odds ceiling
 FLAGSHIP_MIN_EV    = 0.0    # EV must be strictly positive
 
 # ---------------------------------------------------------------------------
@@ -60,7 +60,7 @@ FLAGSHIP_USE_JUICE_WINDOW = True
 # Overs before qualifying for the flagship tier. Set equal to
 # THRESH_FLAGSHIP to disable the asymmetry.
 # ---------------------------------------------------------------------------
-FLAGSHIP_UNDER_MIN_CONF = 84
+FLAGSHIP_UNDER_MIN_CONF = 88
 
 # ---------------------------------------------------------------------------
 # Track-record launch date
@@ -79,9 +79,9 @@ LAUNCH_DATE = "2026-06-15"
 # more confident than the model, making the leg a negative-EV inclusion.
 # ---------------------------------------------------------------------------
 PARLAY_NUM_LEGS = 2
-PARLAY_MAX_JUICE = -130
+PARLAY_MAX_JUICE = -115
 PARLAY_CORR_BONUS = {
-    "two_pitcher_k_same_side": 4,
+    "two_pitcher_k_same_side": 5,
 }
 
 # Cross-game is enforced (different games) as a pricing rule — same-game
@@ -99,11 +99,11 @@ HITTER_LOTTO_MARKETS = {"HR", "TB", "HITS_2PLUS", "RBI"}
 # Scoring caps
 # ---------------------------------------------------------------------------
 CAP_NO_FLAGSHIP          = True
-CAP_IF_MATCHUP_POINTS_LT = (10, 79)
-CAP_IF_LEASH_POINTS_LT   = (12, 79)
-CAP_IF_MARKET_POINTS_LT  = (4, 79)
+CAP_IF_MATCHUP_POINTS_LT = (8, 74)
+CAP_IF_LEASH_POINTS_LT   = (9, 74)
+CAP_IF_MARKET_POINTS_LT  = (3, 74)
 
-HITTER_LOTTO_MAX_CONF = 85
+HITTER_LOTTO_MAX_CONF = 80
 
 # ---------------------------------------------------------------------------
 # Kelly Criterion bankroll management
@@ -116,5 +116,5 @@ HITTER_LOTTO_MAX_CONF = 85
 #   deployment. Used only to show illustrative dollar sizing on the card.
 # ---------------------------------------------------------------------------
 KELLY_FRACTION    = 0.50
-KELLY_MAX_BET_PCT = 0.02
+KELLY_MAX_BET_PCT = 0.025
 BANKROLL = 10000.0

@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 """
 validate_starters.py
@@ -10,9 +10,10 @@ Adds two columns to the pitcher props DataFrame:
   starter_confirmed  : bool  — both sources agree on this pitcher
   starter_conflict   : bool  — sources disagree (mismatch or one is missing)
 
-Pitchers flagged as starter_conflict=True receive a confidence cap of 65
-(below THRESH_FLAGSHIP=82 and THRESH_PARLAY_LEG=74) so they cannot
-reach a flagship or parlay tier pick.
+Pitchers flagged as starter_conflict=True receive a confidence cap
+(UNCONFIRMED_CONF_CAP, below both the flagship and parlay-leg thresholds
+in config.py) so they cannot reach a flagship or parlay tier pick. The
+cap value here is an illustrative placeholder — see config.py.
 
 Usage (in main.py, after props are built but before score_pitcher_props):
     from mlb.data_sources.validate_starters import validate_probable_starters
@@ -26,7 +27,7 @@ import pandas as pd
 
 from mlb.data_sources.mlb_stats_api import BASE
 
-UNCONFIRMED_CONF_CAP = 65.0
+UNCONFIRMED_CONF_CAP = 60.0
 
 
 def _canon(name: str) -> str:

@@ -179,7 +179,7 @@ def _select_also_recommended(df: pd.DataFrame, flagship_pool: list[dict] | None 
     def _tracked_tier(conf, odds, ev):
         if conf < THRESH_FLAGSHIP:  return "SKIP"
         if ev <= FLAGSHIP_MIN_EV:   return "SKIP"
-        if odds <= -131 and odds >= -200:  return "TRACKED"
+        if odds <= -118 and odds >= -170:  return "TRACKED"  # mirrors flagship juice window (illustrative)
         return "SKIP"
 
     d["_tier"] = d.apply(
